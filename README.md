@@ -10,7 +10,7 @@
 # Getting Started
  Git clone the repo and open the solution file on your VS. I am not sure about other IDEs. 
 1.	Installation process - NA
-2.	Software dependencies - almost 0 (none) but **NUnit**
+2.	Software dependencies - almost 0 (none) but **NUnit** **NewtonSoft-JSON**
 3.	Latest releases - master branch
 4.	API references - NA
 
