@@ -1,20 +1,25 @@
 # Introduction 
-TODO: API automated tests for the AppName app
+ API automated tests framework for a sample app with say micro services. This repo can be used as a startup for writing C# api tests. 
+ 
+ 1. The test cases folder have samples for integration api tests. The services folder consists one service file for each microservice.
+ 2. A new microservice file can be added for a new microservice with various http calls like per say GET, POST, PUT, DELETE, etc,. calls for it. 
+ 3. Data file can host the data needed for the tests using nunit data driven framework.
+ 4. Constants file consists of the constants like the server name, protocol, api keys and other constants.
+ 5. Parallel/ multi thread test execution possible using nunit for faster test runs. Set LevelOfParallelism to say ideally 4 and play with parallel scope in NUnitSettings file.
 
 # Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+ Git clone the repo and open the solution file on your VS. I am not sure about other IDEs. 
+1.	Installation process - NA
+2.	Software dependencies - almost 0 (none) but NUnit
+3.	Latest releases - master branch
+4.	API references - NA
 
 # Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+Unit test explorer shows the tests and can used to run the tests.
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+#### Donations
+Please feel free to donate as this work is made possible with donations like yours. It involves years of efforts with money spent to obtain the college degree and experience gained to write quality software. PM for customizations and implementations 
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZKRHDCLG22EJA)
+
+Most of all. Enjoy Coding :+1:
