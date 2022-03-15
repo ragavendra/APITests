@@ -158,6 +158,7 @@ namespace AppName
 
         }
 
+        /*
         public string performPostOpn(JObject request)
         {
 
@@ -201,7 +202,7 @@ namespace AppName
             TestContext.WriteLine("Status code - {0} ", response.StatusCode);
 
             return jsonResponse;
-        }
+        }*/
 
         public async Task<string> PostAsync(string uri, string data)
         {

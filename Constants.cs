@@ -7,8 +7,7 @@ namespace AppName
          
         public const string environment = "stg"; //prd stg qa
 
-        //EyesOnTransit
-        public const string eotServerName = "servername.net";
+        public const string eotServerName = "jsonplaceholder.typicode.com";
         
         public const string apiKey = "apiKey";    //DEV
         public const string protocol = "https";

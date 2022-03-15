@@ -16,7 +16,7 @@ namespace AppName
         {
             string memberId = DateTime.Now.ToString("MMddyyyy_HHmmss");
 
-            Someapp someapp = new Someapp();
+            SomeApp someapp = new SomeApp();
 
             someapp.GetMembersSettings();
             var respo = someapp.Get();
@@ -86,48 +86,6 @@ namespace AppName
 
             Assert.True(!flag, $"Member id - {memberId} exists in the system after DELETE");
 
-
-        }
-
-
-        [TestCase(TestName = "Role settings workflow"), Order(2)]
-        public void RoleSettingsWorkflow()
-        {
-            string memberId = DateTime.Now.ToString("MMddyyyy_HHmmss");
-
-            Someapp someapp = new Someapp();
-
-            someapp.GetRolesSettings();
-            var respo = someapp.Get();
-            Assert.AreEqual(200, (int) respo.status, "Status code is not 200");
-
-            string resp = respo.response;
-
-            Assert.False(resp.ToString().Contains(memberId), $"Member id - {memberId} exists in the system");
-
-            //add member to the system - use POST call
-            someapp.AddRoleToSettings(memberId);
-            respo = someapp.Put();
-            Assert.AreEqual(200, (int) respo.status, "Status code is not 200");
-
-            someapp.GetRolesSettings();
-            respo = someapp.Get();
-            Assert.AreEqual(200, (int) respo.status, "Status code is not 200");
-            resp = respo.response;
-
-            Assert.True(resp.ToString().Contains(memberId), $"Member id - {memberId} exists in the system");
-
-            //delete member
-            someapp.DeleteRoleFromSettings(memberId);
-            respo = someapp.Delete();
-            Assert.AreEqual(200, (int) respo.status, "Status code is not 200");
-
-            someapp.GetRolesSettings();
-            respo = someapp.Get();
-            Assert.AreEqual(200, (int) respo.status, "Status code is not 200");
-            resp = respo.response;
-
-            Assert.False(resp.ToString().Contains(memberId), $"Member id - {memberId} exists in the system");
 
         }
 

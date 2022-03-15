@@ -7,7 +7,8 @@ namespace AppName
     {
         
         private string serverName = Constants.eotServerName;
-        private const string protocol = Constants.protocol;
+        private readonly string protocol = Constants.protocol;
+        private readonly string version = 1.ToString();
 
         //GET calls
         public void GetAllSettings()
