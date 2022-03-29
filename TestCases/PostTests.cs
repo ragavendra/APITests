@@ -36,7 +36,7 @@ namespace AppName
 
         }
 
-        [TestCase(TestName = "Get post by userId"), Order(0)]
+        [TestCase(TestName = "Get post by userId"), Order(2)]
         public void getPostByUserId() 
         {
             Post post = new Post();
@@ -57,6 +57,28 @@ namespace AppName
             //Assert.IsNull(((Newtonsoft.Json.Linq.JValue)resp["error"]).Value, "Error is not null");
 
             //TestContext.WriteLine($"There are {iIndex} posts");
+            System.Threading.Thread.Sleep(1000);
+
+        }
+
+        [TestCase(TestName = "Create a post"), Order(6)]
+        public void createPost() 
+        {
+            Post post = new Post();
+            var userId = 1;
+            var title = "Title";
+            var body = "Body of the post goes here";
+            post.createPost(title, body, userId);
+            var respo = post.Post();
+
+            Assert.AreEqual(HttpStatusCode.Created, respo.status, "Status code is not 200");
+
+            var resp = JsonSerializer.Deserialize<Models.Post>(respo.response);
+
+            Assert.AreEqual(resp.userId, userId, $"Invalid post {resp.userId} for user {userId}");
+            Assert.AreEqual(resp.title, title, $"Invalid post {resp.title}");
+            Assert.AreEqual(resp.body, body, $"Invalid post {resp.body}");
+
             System.Threading.Thread.Sleep(1000);
 
         }

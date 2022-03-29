@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net;
-using AppName.Models;
-using Newtonsoft.Json;
 using NUnit.Framework;
-using Newtonsoft.Json.Linq;
+using System.Text.Json;
 
 namespace AppName
 {
@@ -22,7 +19,8 @@ namespace AppName
             var respo = someapp.Get();
             Assert.AreEqual(200, (int) respo.status, "Status code is not 200");
 
-            var members = JsonConvert.DeserializeObject<List<Member>>(respo.response);
+            //var members = JsonConvert.DeserializeObject<List<Member>>(respo.response);
+            var members = JsonSerializer.Deserialize<List<Models.Member>>(respo.response);
             //JObject resp = JObject.Parse(respo.response);
 
             //check if member already exists in the system
@@ -40,7 +38,8 @@ namespace AppName
             respo = someapp.Get();
             Assert.AreEqual(200, (int) respo.status, "Status code is not 200");
             //resp = JObject.Parse(respo.response);
-            members = JsonConvert.DeserializeObject<List<Member>>(respo.response);
+            //members = JsonConvert.DeserializeObject<List<Member>>(respo.response);
+             members = JsonSerializer.Deserialize<List<Models.Member>>(respo.response);
 
             bool flag = false;
 
@@ -68,7 +67,7 @@ namespace AppName
             respo = someapp.Get();
             Assert.AreEqual(200, (int) respo.status, "Status code is not 200");
             //resp = JObject.Parse(respo.response);
-            members = JsonConvert.DeserializeObject<List<Member>>(respo.response);
+            members = JsonSerializer.Deserialize<List<Models.Member>>(respo.response);
 
             flag = false;
 
