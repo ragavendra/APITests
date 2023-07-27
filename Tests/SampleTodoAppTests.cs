@@ -5,13 +5,13 @@ using NUnit.Framework;
 
 namespace AppName
 {
-    public class PostTests : TestFixture
+    public class SampleTodoAppTests : TestFixture
     {
 
         [TestCase(TestName = "Get all posts"), Order(0)]
         public void getAllPosts() 
         {
-            Post post = new Post();
+            SampleTodoApp post = new SampleTodoApp();
             post.getAllPosts();
             var respo = post.Get();
             var iIndex = 0;
@@ -39,7 +39,7 @@ namespace AppName
         [TestCase(TestName = "Get post by userId"), Order(2)]
         public void getPostByUserId() 
         {
-            Post post = new Post();
+            SampleTodoApp post = new SampleTodoApp();
             var userId = 1;
             post.getPostByUserId(userId.ToString());
             var respo = post.Get();
@@ -64,7 +64,7 @@ namespace AppName
         [TestCase(TestName = "Create a post"), Order(6)]
         public void createPost() 
         {
-            Post post = new Post();
+            SampleTodoApp post = new SampleTodoApp();
             var userId = 1;
             var title = "Title";
             var body = "Body of the post goes here";

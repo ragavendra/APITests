@@ -7,7 +7,7 @@ namespace AppName
         private string serverName = Constants.eotServerName;
         private const string protocol = Constants.protocol;
 
-        public void SomeApp1_(string routeFilter = "")
+        public SomeApp1(string routeFilter = "")
         {
             if (routeFilter != "")
                 URLi = $"{protocol}://{serverName}/someapp1/api/SomeApp1?routeFilter={routeFilter}";

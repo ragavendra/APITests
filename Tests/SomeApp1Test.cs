@@ -12,7 +12,8 @@ namespace AppName
         {
 
 			SomeApp1 someapp1 = new SomeApp1();
-            someapp1.SomeApp1_();
+            // someapp1.SomeApp1_();
+
             //var respo = someapp1.performGetOpn();
             var respo = someapp1.Get();
 
@@ -35,8 +36,8 @@ namespace AppName
         public void GetSomeApp1(string route) 
         {
 			
-			SomeApp1 someapp1 = new SomeApp1();
-            someapp1.SomeApp1_(route);
+			SomeApp1 someapp1 = new SomeApp1(route);
+
             //var respo = someapp1.performGetOpn();
             var respo = someapp1.Get();
 

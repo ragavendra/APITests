@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace AppName
 {
-    public class Post : Rest
+    public class SampleTodoApp : Rest
     {
         
         private string serverName = Constants.eotServerName;
