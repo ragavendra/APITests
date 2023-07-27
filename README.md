@@ -27,7 +27,7 @@
 # Build and Test
 Unit test explorer in Visual Studio should show the tests and can used to run or debug the test(s).
 
-###CLI
+### CLI
 
 To run all the test(s)
 
