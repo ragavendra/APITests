@@ -34,8 +34,8 @@ To run all the test(s)
 ``` dotnet test ```
 
 
-#### Donations
-Please feel free to donate as this work is made possible with donations like yours. It involves years of efforts with money spent to obtain the college degree and experience gained to write quality software. PM for customizations and implementations . Not to worry if the business says FashionJewelry as it is a common business.
+## Donations
+Please feel free to donate as this work is made possible with donations like yours. It involves years of efforts with money spent to obtain the college degree and experience gained to write quality software. PM for customizations and implementations . Not to worry if the business says `GardenSystems` as it is a common business.
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZKRHDCLG22EJA)
 
