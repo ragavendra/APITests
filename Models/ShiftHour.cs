@@ -1,5 +1,5 @@
 ﻿
-namespace AppName.Models
+namespace ApiTests.Models
 {
     public class ShiftHour
     {

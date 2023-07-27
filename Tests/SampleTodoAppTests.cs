@@ -2,8 +2,10 @@
 using System.Net;
 using System.Text.Json;
 using NUnit.Framework;
+using ApiTests.Apps;
+using ApiTests.Models;
 
-namespace AppName
+namespace ApiTests.Tests
 {
     public class SampleTodoAppTests : TestFixture
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AppName
+namespace ApiTests
 {
     public struct Constants
     {

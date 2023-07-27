@@ -1,7 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 
-namespace AppName
+namespace ApiTests.Tests
 {
     public class TestFixture
     {

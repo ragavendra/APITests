@@ -1,5 +1,5 @@
 ﻿
-namespace AppName
+namespace ApiTests
 {
     class Data
     {

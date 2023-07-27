@@ -1,5 +1,5 @@
 ﻿
-namespace AppName
+namespace ApiTests.Apps
 {
     public class SomeApp1 : Rest
     {

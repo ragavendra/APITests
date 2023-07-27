@@ -7,7 +7,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppName
+namespace ApiTests.Apps
 {
 
     public abstract class Rest

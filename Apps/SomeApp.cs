@@ -1,7 +1,7 @@
-﻿using AppName.Models;
+﻿using ApiTests.Models;
 using Newtonsoft.Json;
 
-namespace AppName
+namespace ApiTests.Apps
 {
     public class SomeApp : Rest
     {

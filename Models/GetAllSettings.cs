@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AppName.Models
+namespace ApiTests.Models
 {
     public class GetAllSettings
     {

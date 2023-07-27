@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using System.Text.Json;
+using ApiTests.Apps;
+using ApiTests.Models;
 
-namespace AppName
+namespace ApiTests.Tests
 {
     public class SomeAppTest : TestFixture
     {
