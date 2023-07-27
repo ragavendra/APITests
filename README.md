@@ -1,5 +1,5 @@
 # Introduction 
- API automated tests framework for a sample app with say micro services with least overhead. This repo can be used as a startup for writing api tests in C#. Please refer to [SampleTodoAppTests](SampleTodoAppTests.cs) for the working sample.
+ API automated tests framework for a sample app with say micro services with least overhead. This repo can be used as a startup for writing api tests in C#. Please refer to [SampleTodoAppTests](Tests/SampleTodoAppTests.cs) for the working sample test.
  
  1. The **[Tests](Tests)** folder have samples for integration api tests. The **[Apps](Apps)** folder consists one service file for each of the app service(s).
  2. A new **App** service file can be added for a new service with atleast one method for each end point and one method for each of the type of the calls supported by the app like say GET, POST, PUT, DELETE, etc,. For GET calls only the `URLi` gets updated, for POST, PUT, UPDATE and similar messages needing message body, the string body `sMessage` need to be passed as well.
