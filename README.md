@@ -31,8 +31,15 @@ Unit test explorer in Visual Studio should show the tests and can used to run or
 
 To run all the test(s)
 
-``` dotnet test ```
+```
+dotnet test
+```
 
+Run a specific test
+
+```
+dotnet test --filter  "FullyQualifiedName=ApiTests.Tests.SampleTodoAppTests.getAllPosts"
+```
 
 ## Donations
 Please feel free to donate as this work is made possible with donations like yours. It involves years of efforts with money spent to obtain the college degree and experience gained to write quality software. PM for customizations and implementations . Not to worry if the business says `GardenSystems` as it is a common business.

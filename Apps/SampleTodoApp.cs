@@ -13,7 +13,7 @@ namespace ApiTests.Apps
         //GET calls
         public void getAllPosts()
         {
-            _url = $"{_protocol}://{_serverName}/posts";
+            _url = string.Format("{0}://{1}/posts", _protocol, _serverName);
         }
 
         public void getPostByUserId(string userId = "")

@@ -76,7 +76,6 @@ namespace ApiTests.Tests
             JObject resp = JObject.Parse(respo.response);
 
             Assert.AreEqual(resp["statusCode"].ToString(), "200", "Status code is not 200");
-            Assert.IsNull(((Newtonsoft.Json.Linq.JValue)resp["error"]).Value, "Error is not null");
             */
             System.Threading.Thread.Sleep(1000);
 
@@ -98,16 +97,7 @@ namespace ApiTests.Tests
 
             Assert.AreEqual(HttpStatusCode.OK, respo.status, "Status code is not 200");
 
-            //Assert.AreEqual(resp.Item1, resp.Item2, "Responses are not matching");
-            /*
-
-            JObject resp = JObject.Parse(respo.response);
-
-            Assert.AreEqual(resp["statusCode"].ToString(), "200", "Status code is not 200");
-            Assert.IsNull(((Newtonsoft.Json.Linq.JValue)resp["error"]).Value, "Error is not null");
-            */
             System.Threading.Thread.Sleep(1000);
-
         }
 
 
@@ -123,28 +113,7 @@ namespace ApiTests.Tests
             //var respo = someapp1.performGetOpn();
             var respo = someapp1.Get();
             Assert.AreEqual(HttpStatusCode.OK, respo.status, "Status code is not 200");
-            /*
-
-            JObject resp = JObject.Parse(respo.response);
-
-            Assert.AreEqual(resp["statusCode"].ToString(), "200", "Status code is not 200");
-            Assert.IsNull(((Newtonsoft.Json.Linq.JValue)resp["error"]).Value, "Error is not null");
-
-            System.Threading.Thread.Sleep(100 * 1000);
-
-            someapp1.Status(resp["requestId"].ToString());
-            someapp1.Get();
-
-            respo = someapp1.Get();
-            Assert.AreEqual(HttpStatusCode.OK, respo.status, "Status code is not 200");
-
-            resp = JObject.Parse(respo.response);
-
-            Assert.AreEqual(resp["statusCode"].ToString(), "200", "Status code is not 200");
-            Assert.IsNull(((Newtonsoft.Json.Linq.JValue)resp["error"]).Value, "Error is not null");
-            */
             System.Threading.Thread.Sleep(1000);
-
         }
 
     }

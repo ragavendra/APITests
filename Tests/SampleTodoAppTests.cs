@@ -38,7 +38,6 @@ namespace ApiTests.Tests
 
             //Assert.AreEqual(post_.title, route, $"Route no filter is not working for {route}");
             //Assert.AreEqual(resp["statusCode"].ToString(), "200", "Status code is not 200");
-            //Assert.IsNull(((Newtonsoft.Json.Linq.JValue)resp["error"]).Value, "Error is not null");
 
             TestContext.WriteLine($"There are {iIndex} posts");
         }
