@@ -6,45 +6,51 @@ namespace ApiTests.Apps
     public class SampleTodoApp : Rest
     {
         
-        private string serverName = Constants.eotServerName;
-        private const string protocol = Constants.protocol;
+        private string _serverName = Constants.eotServerName;
+
+        private const string _protocol = Constants.protocol;
 
         //GET calls
         public void getAllPosts()
         {
-            URLi = $"{protocol}://{serverName}/posts";
+            _url = $"{_protocol}://{_serverName}/posts";
         }
 
         public void getPostByUserId(string userId = "")
         {
-            URLi = $"{protocol}://{serverName}/posts";
+            _url = $"{_protocol}://{_serverName}/posts";
 
             if (userId == "")
+            {
                 return;
+            }
             else
-                URLi = URLi + $"?userId={userId}";
+            {
+                _url = _url + $"?userId={userId}";
+            }
         }
 
         public void getCommentsForPost(string postId = "")
         {
-            URLi = $"{protocol}://{serverName}/posts";
+            _url = $"{_protocol}://{_serverName}/posts";
 
             if (postId == "")
+            {
                 return;
+            }
             else
-                URLi = URLi + $"/{postId}/1/comments";
+            {
+                _url = _url + $"/{postId}/1/comments";
+            }
         }
 
         public void createPost(string title, string body, int userId)
         {
-            URLi = $"{protocol}://{serverName}/posts";
+            _url = $"{_protocol}://{_serverName}/posts";
 
-            Models.Post post = new Models.Post();
-            post.title = title;
-            post.body = body;
-            post.userId = userId;
+            Post post = new Post() { title = title, body = body, userId = userId};
 
-            sMessage = JsonConvert.SerializeObject(post);
+            _message = JsonConvert.SerializeObject(post);
         }
 
 

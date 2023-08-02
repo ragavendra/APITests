@@ -10,24 +10,24 @@ namespace ApiTests.Apps
         public SomeApp1(string routeFilter = "")
         {
             if (routeFilter != "")
-                URLi = $"{protocol}://{serverName}/someapp1/api/SomeApp1?routeFilter={routeFilter}";
+                _url = $"{protocol}://{serverName}/someapp1/api/SomeApp1?routeFilter={routeFilter}";
             else
-                URLi = $"{protocol}://{serverName}/someapp1/api/SomeApp1";
+                _url = $"{protocol}://{serverName}/someapp1/api/SomeApp1";
         }
 
         public void SomeApp1History(string dateTime)
         {
-            URLi = $"{protocol}://{serverName}/someapp1/api/SomeApp1/History/{dateTime}";
+            _url = $"{protocol}://{serverName}/someapp1/api/SomeApp1/History/{dateTime}";
         }
 
         public void SomeApp1TimeLapse(string fromDateTime, string toDateTime, string intervalInSeconds)
         {
-            URLi = $"{protocol}://{serverName}/someapp1/api/SomeApp1/timelapse/{fromDateTime}/{toDateTime}/{intervalInSeconds}";
+            _url = $"{protocol}://{serverName}/someapp1/api/SomeApp1/timelapse/{fromDateTime}/{toDateTime}/{intervalInSeconds}";
         }
 
         public void Status(string requestId = "")
         {
-            URLi = $"{protocol}://{serverName}/someapp1/api/Status?requestId={requestId}";
+            _url = $"{protocol}://{serverName}/someapp1/api/Status?requestId={requestId}";
         }
 
 

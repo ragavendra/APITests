@@ -12,36 +12,39 @@ namespace ApiTests.Apps
 
     public abstract class Rest
     {
-        protected string URLi, sMessage, auth;
-        //protected JObject jMessage;
+        protected string _url;
+
+        protected string _message;
+
+        protected string auth;
 
         public (HttpStatusCode status, string response) Get()
         {
-            var asyncTask = httpGet();
+            var asyncTask = HttpGetAsync();
             asyncTask.Wait();
             return (asyncTask.Result.status, asyncTask.Result.response);
         }
 
-        private async Task<(HttpStatusCode status, string response)> httpGet()
+        private async Task<(HttpStatusCode status, string response)> HttpGetAsync()
         {
             using var client = new HttpClient();
 
             // Request headers
             client.DefaultRequestHeaders.Add("Subscription-Key", Constants.apiKey);
 
-            var response = await client.GetAsync(URLi);
+            var response = await client.GetAsync(_url);
 
             return (response.StatusCode, await response.Content.ReadAsStringAsync());
         }
 
         public (HttpStatusCode status, string response) Post()
         {
-            var asyncTask = httpPost(sMessage);
+            var asyncTask = HttpPostAsync(_message);
             asyncTask.Wait();
             return (asyncTask.Result.status, asyncTask.Result.response);
         }
 
-        private async Task<(HttpStatusCode status, string response)> httpPost(string request)
+        private async Task<(HttpStatusCode status, string response)> HttpPostAsync(string request)
         {
             using var client = new HttpClient();
             var content = new StringContent(request, Encoding.UTF8, "application/json");
@@ -49,19 +52,19 @@ namespace ApiTests.Apps
             // Request headers
             client.DefaultRequestHeaders.Add("Subscription-Key", Constants.apiKey);
 
-            var response = await client.PostAsync(URLi, content);
+            var response = await client.PostAsync(_url, content);
 
             return (response.StatusCode, await response.Content.ReadAsStringAsync());
         }
 
         public (HttpStatusCode status, string response) Put()
         {
-            var asyncTask = httpPut(sMessage);
+            var asyncTask = HttpPutAsync(_message);
             asyncTask.Wait();
             return (asyncTask.Result.status, asyncTask.Result.response);
         }
 
-        private async Task<(HttpStatusCode status, string response)> httpPut(string request)
+        private async Task<(HttpStatusCode status, string response)> HttpPutAsync(string request)
         {
             using var client = new HttpClient();
             var content = new StringContent(request, Encoding.UTF8, "application/json");
@@ -69,26 +72,26 @@ namespace ApiTests.Apps
             // Request headers
             client.DefaultRequestHeaders.Add("Subscription-Key", Constants.apiKey);
 
-            var response = await client.PutAsync(URLi, content);
+            var response = await client.PutAsync(_url, content);
 
             return (response.StatusCode, await response.Content.ReadAsStringAsync());
         }
 
         public (HttpStatusCode status, string response) Delete()
         {
-            var asyncTask = httpDelete();
+            var asyncTask = HttpDeleteAsync();
             asyncTask.Wait();
             return (asyncTask.Result.status, asyncTask.Result.response);
         }
 
-        private async Task<(HttpStatusCode status, string response)> httpDelete()
+        private async Task<(HttpStatusCode status, string response)> HttpDeleteAsync()
         {
             using var client = new HttpClient();
 
             // Request headers
             client.DefaultRequestHeaders.Add("Subscription-Key", Constants.apiKey);
 
-            var response = await client.DeleteAsync(URLi);
+            var response = await client.DeleteAsync(_url);
 
             return (response.StatusCode, await response.Content.ReadAsStringAsync());
         }

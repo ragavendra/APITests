@@ -13,7 +13,7 @@ namespace ApiTests.Apps
         //GET calls
         public void GetAllSettings()
         {
-            URLi = $"{protocol}://{serverName}/someapp/api/someapp/Settings/All";
+            _url = $"{protocol}://{serverName}/someapp/api/someapp/Settings/All";
         }
 		
 		//search incident URL gen multiple params
@@ -25,98 +25,98 @@ namespace ApiTests.Apps
 
             if ((ss == "") && (sk == "") && (fd == "") && (td == "") && (ui == ""))
             {
-                URLi = $"{protocol}://{serverName}/v{version}/IncidentReport/list";
+                _url = $"{protocol}://{serverName}/v{version}/IncidentReport/list";
                 return;
             }
 
             if (ss != "")
             {
-                URLi = URLi + $"ss={ss}";
+                _url = _url + $"ss={ss}";
                 iIndex++;
             }
 
             if (sk != "")
             {
                 if (iIndex > 0)
-                    URLi = URLi + "&";
+                    _url = _url + "&";
 
-                URLi = URLi + $"sk={sk}";
+                _url = _url + $"sk={sk}";
                 iIndex++;
             }
 
             if (fd != "")
             {
                 if (iIndex > 0)
-                    URLi = URLi + "&";
+                    _url = _url + "&";
 
-                URLi = URLi + $"fd={fd}";
+                _url = _url + $"fd={fd}";
             }
 
             if (td != "")
             {
                 if (iIndex > 0)
-                    URLi = URLi + "&";
+                    _url = _url + "&";
 
-                URLi = URLi + $"td={td}";
+                _url = _url + $"td={td}";
             }
 
             if (ui != "")
             {
                 if (iIndex > 0)
-                    URLi = URLi + "&";
+                    _url = _url + "&";
 
-                URLi = URLi + $"ui={ui}";
+                _url = _url + $"ui={ui}";
             }
 
-            URLi = $"{protocol}://{serverName}/v{version}/IncidentReport/list?" + URLi;
+            _url = $"{protocol}://{serverName}/v{version}/IncidentReport/list?" + _url;
 
         }
 
 
         public void GetCarsSettings()
         {
-            URLi = $"{protocol}://{serverName}/someapp/api/someapp/Settings/Cars";
+            _url = $"{protocol}://{serverName}/someapp/api/someapp/Settings/Cars";
         }
 
         public void GetMembersSettings()
         {
-            URLi = $"{protocol}://{serverName}/someapp/api/someapp/Settings/Members";
+            _url = $"{protocol}://{serverName}/someapp/api/someapp/Settings/Members";
         }
 
         public void GetPatrolAreasSettings()
         {
-            URLi = $"{protocol}://{serverName}/someapp/api/someapp/Settings/PatrolAreas";
+            _url = $"{protocol}://{serverName}/someapp/api/someapp/Settings/PatrolAreas";
         }
 
         public void GetPatrolHubToSettings()
         {
-            URLi = $"{protocol}://{serverName}/someapp/api/someapp/Settings/PatrolHubs";
+            _url = $"{protocol}://{serverName}/someapp/api/someapp/Settings/PatrolHubs";
         }
 
         public void GetPatrolRolesSettings()
         {
-            URLi = $"{protocol}://{serverName}/someapp/api/someapp/Settings/Roles";
+            _url = $"{protocol}://{serverName}/someapp/api/someapp/Settings/Roles";
         }
 
         public void GetShiftDefaultHoursSettings()
         {
-            URLi = $"{protocol}://{serverName}/someapp/api/someapp/Settings/ShiftDefaultHours";
+            _url = $"{protocol}://{serverName}/someapp/api/someapp/Settings/ShiftDefaultHours";
         }
 
         public void GetShiftsByDate(string date)
         {
-            URLi = $"{protocol}://{serverName}/someapp/api/someapp/Shifts/{date}";
+            _url = $"{protocol}://{serverName}/someapp/api/someapp/Shifts/{date}";
         }
 
         public void GetShiftsWithSettingsByDate(string date)
         {
-            URLi = $"{protocol}://{serverName}/someapp/api/someapp/ShiftsWithSettings/{date}";
+            _url = $"{protocol}://{serverName}/someapp/api/someapp/ShiftsWithSettings/{date}";
         }
 
         //POST calls
         public void SaveMemberToSettings(string identification, string firstName, string lastName, string phone)
         {
-            URLi = $"{protocol}://{serverName}/someapp/api/someapp/Settings/Members";
+            _url = $"{protocol}://{serverName}/someapp/api/someapp/Settings/Members";
 
             //sMessage = $"\"identification\": {identification},\"firstName\": {firstName},\"lastName\": {lastName},\"phone\": {phone}\"";
             Member person = new Member();
@@ -124,37 +124,37 @@ namespace ApiTests.Apps
             person.firstName = firstName;
             person.lastName = lastName;
             person.phone = phone;
-            sMessage = JsonConvert.SerializeObject(person);
+            _message = JsonConvert.SerializeObject(person);
         }
 
         public void UpdateShift(string name, string startHour, string endHour)
         {
-            URLi = $"{protocol}://{serverName}/someapp/api/someapp/Settings/Members";
+            _url = $"{protocol}://{serverName}/someapp/api/someapp/Settings/Members";
 
             ShiftHour shift = new ShiftHour();
             shift.name = name;
             shift.startHour = startHour;
             shift.endHour = endHour;
 
-            sMessage = JsonConvert.SerializeObject(shift);
+            _message = JsonConvert.SerializeObject(shift);
         }
 
         public void UpdateShiftDefaultHoursToSettings(string name, string startHour, string endHour)
         {
-            URLi = $"{protocol}://{serverName}/someapp/api/someapp/Settings/Members";
+            _url = $"{protocol}://{serverName}/someapp/api/someapp/Settings/Members";
 
             ShiftHour shift = new ShiftHour();
             shift.name = name;
             shift.startHour = startHour;
             shift.endHour = endHour;
 
-            sMessage = JsonConvert.SerializeObject(shift);
+            _message = JsonConvert.SerializeObject(shift);
         }
 
         //PUT calls
         public void AddMemberToSettings(string identification, string firstName, string lastName, string phone)
         {
-            URLi = $"{protocol}://{serverName}/someapp/api/someapp/Settings/Members";
+            _url = $"{protocol}://{serverName}/someapp/api/someapp/Settings/Members";
 
             //sMessage = $"\"identification\": {identification},\"firstName\": {firstName},\"lastName\": {lastName},\"phone\": {phone}\"";
             Member person = new Member();
@@ -162,73 +162,73 @@ namespace ApiTests.Apps
             person.firstName = firstName;
             person.lastName = lastName;
             person.phone = phone;
-            sMessage = JsonConvert.SerializeObject(person);
+            _message = JsonConvert.SerializeObject(person);
         }
 
         public void AddCarToSettings(string car)
         {
-            URLi = $"{protocol}://{serverName}/someapp/api/someapp/Settings/Cars/{car}";
+            _url = $"{protocol}://{serverName}/someapp/api/someapp/Settings/Cars/{car}";
 
-            sMessage = JsonConvert.SerializeObject(car);
+            _message = JsonConvert.SerializeObject(car);
         }
 
         public void AddPatrolAreaToSettings(string area)
         {
-            URLi = $"{protocol}://{serverName}/someapp/api/someapp/Settings/PatrolAreas/{area}";
+            _url = $"{protocol}://{serverName}/someapp/api/someapp/Settings/PatrolAreas/{area}";
 
             Member person = new Member();
-            sMessage = JsonConvert.SerializeObject(person);
+            _message = JsonConvert.SerializeObject(person);
         }
 
         public void AddPatrolHubToSettings(string hub)
         {
-            URLi = $"{protocol}://{serverName}/someapp/api/someapp/Settings/PatrolHubs/{hub}";
+            _url = $"{protocol}://{serverName}/someapp/api/someapp/Settings/PatrolHubs/{hub}";
 
             Member person = new Member();
-            sMessage = JsonConvert.SerializeObject(person);
+            _message = JsonConvert.SerializeObject(person);
         }
 
         public void AddRoleToSettings(string role)
         {
-            URLi = $"{protocol}://{serverName}/someapp/api/someapp/Settings/Roles/{role}";
+            _url = $"{protocol}://{serverName}/someapp/api/someapp/Settings/Roles/{role}";
 
             Member person = new Member();
-            sMessage = JsonConvert.SerializeObject(person);
+            _message = JsonConvert.SerializeObject(person);
         }
 
         public void AddShift(string role)
         {
-            URLi = $"{protocol}://{serverName}/someapp/api/someapp/Shifts/Add";
+            _url = $"{protocol}://{serverName}/someapp/api/someapp/Shifts/Add";
 
             Member person = new Member();
-            sMessage = JsonConvert.SerializeObject(person);
+            _message = JsonConvert.SerializeObject(person);
         }
 
         //DELETE calls
 
         public void DeleteCarFromSettings(string car)
         {
-            URLi = $"{protocol}://{serverName}/someapp/api/someapp/Settings/Cars/{car}";
+            _url = $"{protocol}://{serverName}/someapp/api/someapp/Settings/Cars/{car}";
         }
 
         public void DeleteMemberFromSettings(string identification)
         {
-            URLi = $"{protocol}://{serverName}/someapp/api/someapp/Settings/Members/{identification}";
+            _url = $"{protocol}://{serverName}/someapp/api/someapp/Settings/Members/{identification}";
         }
 
         public void DeletePatrolAreaFromSettings(string area)
         {
-            URLi = $"{protocol}://{serverName}/someapp/api/someapp/Settings/PatrolAreas/{area}";
+            _url = $"{protocol}://{serverName}/someapp/api/someapp/Settings/PatrolAreas/{area}";
         }
 
         public void DeletePatrolHubFromSettings(string hub)
         {
-            URLi = $"{protocol}://{serverName}/someapp/api/someapp/Settings/PatrolHubs/{hub}";
+            _url = $"{protocol}://{serverName}/someapp/api/someapp/Settings/PatrolHubs/{hub}";
         }
 
         public void DeleteRoleFromSettings(string role)
         {
-            URLi = $"{protocol}://{serverName}/someapp/api/someapp/Settings/Roles/{role}";
+            _url = $"{protocol}://{serverName}/someapp/api/someapp/Settings/Roles/{role}";
         }
 
 
