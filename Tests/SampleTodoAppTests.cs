@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Net;
+using System.Net.Http.Json;
 using System.Text.Json;
 using NUnit.Framework;
 using ApiTests.Apps;
@@ -94,6 +95,52 @@ namespace ApiTests.Tests
             Assert.AreEqual(resp.userId, userId, $"Invalid post {resp.userId} for user {userId}");
             Assert.AreEqual(resp.title, title, $"Invalid post {resp.title}");
             Assert.AreEqual(resp.body, body, $"Invalid post {resp.body}");
+        }
+
+        // Sample POST call
+        [TestCase(TestName = "Create a post and verify"), Order(8)]
+        public void CreatePostVerify() 
+        {
+
+            // Arrange
+            SampleTodoApp post = new SampleTodoApp();
+
+            // Prepare the message body
+            var userId = 1;
+            var title = "Title";
+            var body = "Body of the post goes here";
+            post.createPost(title, body, userId);
+
+            // Act
+            // Perform POST
+            var respo = post.Post();
+
+            // Assert
+            // Assert response code
+            Assert.AreEqual(HttpStatusCode.Created, respo.status, "Status code is not 200");
+
+            // Deserialize JSON string to .Net model object
+            var resp = JsonSerializer.Deserialize<Models.Post>(respo.response);
+
+            // Verify the JSON response
+            Assert.AreEqual(resp.userId, userId, $"Invalid post {resp.userId} for user {userId}");
+            Assert.AreEqual(resp.title, title, $"Invalid post {resp.title}");
+            Assert.AreEqual(resp.body, body, $"Invalid post {resp.body}");
+
+            // Part 2
+            // Arrange
+            var postId = resp.id.ToString();
+            post.getPostById(postId);
+
+            // Act
+            var res = post.Get();
+
+            resp = JsonSerializer.Deserialize<Post>(respo.response);
+
+            // Assert - Not working as server is not creating the resource
+            // Assert.AreEqual(postId, resp.id, $"Invalid post {postId} for user.");
+            // Assert.AreEqual(title, resp.title, $"Invalid post {resp.title}");
+            // Assert.AreEqual(body, resp.body, $"Invalid post {resp.body}");
         }
     }
 }
