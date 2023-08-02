@@ -6,25 +6,41 @@ namespace ApiTests.Apps
     public class SampleTodoApp : Rest
     {
         
-        private string _serverName = Constants.eotServerName;
+        private readonly string _serverName;
 
-        private const string _protocol = Constants.protocol;
+        private readonly string _protocol;
+
+        public SampleTodoApp()
+        {
+            _serverName = Constants.eotServerName;
+            _protocol = Constants.protocol;
+            SetBaseUrl();
+        }
+
+        private void SetBaseUrl()
+        {
+            _url = string.Format("{0}://{1}", _protocol, _serverName);
+        }
 
         //GET calls
         public void getAllPosts()
         {
-            _url = string.Format("{0}://{1}/posts", _protocol, _serverName);
+            SetBaseUrl();
+            _url = _url + "/posts";
+        }
+
+        public void getPostById(string postId)
+        {
+            SetBaseUrl();
+            _url = _url + $"/posts/{postId}";
         }
 
         public void getPostByUserId(string userId = "")
         {
-            _url = $"{_protocol}://{_serverName}/posts";
+            SetBaseUrl();
+            _url = _url + "/posts";
 
-            if (userId == "")
-            {
-                return;
-            }
-            else
+            if (userId != "")
             {
                 _url = _url + $"?userId={userId}";
             }
@@ -32,13 +48,10 @@ namespace ApiTests.Apps
 
         public void getCommentsForPost(string postId = "")
         {
-            _url = $"{_protocol}://{_serverName}/posts";
+            SetBaseUrl();
+            _url = _url + "/posts";
 
-            if (postId == "")
-            {
-                return;
-            }
-            else
+            if (postId != "")
             {
                 _url = _url + $"/{postId}/1/comments";
             }
@@ -46,13 +59,12 @@ namespace ApiTests.Apps
 
         public void createPost(string title, string body, int userId)
         {
-            _url = $"{_protocol}://{_serverName}/posts";
+            SetBaseUrl();
+            _url = _url + "/posts";
 
             Post post = new Post() { title = title, body = body, userId = userId};
 
             _message = JsonSerializer.Serialize(post);
         }
-
-
     }
 }
