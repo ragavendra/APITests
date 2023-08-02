@@ -1,5 +1,5 @@
 ﻿using ApiTests.Models;
-using Newtonsoft.Json;
+using System.Text.Json;
 
 namespace ApiTests.Apps
 {
@@ -50,7 +50,7 @@ namespace ApiTests.Apps
 
             Post post = new Post() { title = title, body = body, userId = userId};
 
-            _message = JsonConvert.SerializeObject(post);
+            _message = JsonSerializer.Serialize(post);
         }
 
 
